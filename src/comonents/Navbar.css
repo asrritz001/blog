@@ -1,0 +1,32 @@
+.navbar{
+    background-color: rgb(237, 219, 219);
+    height: 90px;
+    margin-bottom: 100px;
+}
+.navbar ul{
+    list-style-type: none;
+    display:flex;
+}
+.navbar ul li{
+    color: white;
+    display:inline;
+    display:block;
+    padding:10px;
+    /* border:1px solid white; */
+    margin: 20px;
+    list-style: none;
+}
+.navbar ul li:hover{
+    background-color: azure;
+    color:black;
+    
+}
+.btn{
+    align-items: center;
+    color: rgb(116, 82, 116);
+    /* display:inline; */
+    margin-top: 100px;
+    margin-bottom: 500px;
+    
+
+}

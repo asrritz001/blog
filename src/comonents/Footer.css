@@ -1,0 +1,26 @@
+.footer{
+    margin-top:200px;
+    background-color:grey;
+    height: 200px;
+    text-align: center;
+    padding: 3px;
+    
+
+}
+.contact{
+    border: 2px;
+     float: left;
+     margin: 10px;
+    height: 150px;
+    width: 400px;
+    background-color: aqua;
+ }
+.socialslink{
+   border: 2px;
+    float: right;
+    margin: 10px;
+    height: 150px;
+    width: 400px;
+    background-color: rgb(68, 0, 255);
+}
+
