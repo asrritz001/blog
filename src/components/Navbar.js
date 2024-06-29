@@ -10,9 +10,13 @@ function Navbar(){
             <li><Link to="/Form">Contact</Link></li>
             <li><Link to="/About">About</Link></li>
             <li><Link to="/Services">Help</Link> </li>
+            <li className="buttons">
+                    <Link to="/Signin" className="button">Login</Link>
+            </li>
+           
         </ul>
-    
-
+        
+        
         </div>
     );
 

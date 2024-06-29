@@ -13,7 +13,7 @@ function Home() {
             <li><Link to="/About">About</Link></li>
             <li><Link to="/Services">Help</Link> </li>
         </ul> */}
-            <button className="btn">Login</button>
+            {/* <button className="btn">Login</button> */}
 
         {/* </div> */}
       
