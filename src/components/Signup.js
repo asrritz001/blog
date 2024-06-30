@@ -1,32 +1,36 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import './login.css';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+// import './Style.css';
+import { Link } from "react-router-dom";
 
-const Login = () => {
+const Signup = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const [error, setError] = useState(null);
 
-    const handleSignin = async (e) => {
+    const handleSignup = async (e) => {
         e.preventDefault();
+
         try {
-            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             console.log(userCredential);
             navigate("/", { state: { email: userCredential.user.email } });
+
         } catch (error) {
             setError(error.message);
         }
+
     }
 
     return (
         <div className="container">
 
-            <h1>Sign In</h1>
-            <form onSubmit={handleSignin}>
+            <h1>Sign Up</h1>
+            <form onSubmit={handleSignup}>
                 <input
                     type="email"
                     placeholder="Enter your email"
@@ -41,16 +45,16 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     required />
 
-                <button type="submit">Sign In</button>
+                <button type="submit">Sign Up</button>
 
-               
-                {error && <p>{error}</p>}
-                <p>Don't have an account?</p>
-                <button onClick={() => navigate("/signup")} className="link-btn">Sign Up</button>
+
+                {error && <p className="error">{error}</p>}
+                <p>Already have an account?</p>
+                <button onClick={() => navigate("/Signin")} className="link-btn">Signin</button>
+
             </form>
         </div>
-    );
+    )
+}
 
-};
-
-export default Login;
+export default Signup;
