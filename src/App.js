@@ -9,6 +9,8 @@ import Form from './components/Form';
 import Signin from './components/Signin';
 import Signup from './components/Signup';
 import './App.css';
+import CreateBlog from './components/Createblog';
+import Post from './components/Post';
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
         <Route path= "/About" element={<About/>}/>
         <Route path= "/Signin" element={<Signin/>}/>
         <Route path= "/Signup" element={<Signup/>}/>
+        <Route path= "/Create" element={<CreateBlog/>}/>
+        <Route path= "/" element={<Post/>}/>
         </Routes>
         <Footer/>
   
