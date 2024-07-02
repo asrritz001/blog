@@ -1,24 +1,26 @@
-import React, { useState } from "react"; 
-import { Navigate, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { addDoc, collection } from "firebase/firestore"; 
 import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import './Createblog.css'; 
+
 
 const CreateBlog =() =>{
     const[title, setTitle] =useState("");
-    const[content, setContent] =useState("");
+    const[postcontent, setpostContent] =useState("");
     const navigate =useNavigate();
 
     const handleSubmit =  async (e) => {
         e.preventDefault();
         try{
-            await addBlog (Collection(db,"posts"),{
+            await addDoc (collection(db,"posts"),{
                 title,
-                content,
-                createAt:new Date(),
+                postcontent,
+                createdAt : new Date(),
             });
-            Navigate("/");
+            navigate("/");
         }catch(error ){
-            console.log("Error adding document",error);
+            console.error("Error adding document",error);
         }
 
     };
@@ -35,8 +37,8 @@ const CreateBlog =() =>{
 
                     <textarea 
                     placeholder="Content"
-                    value={content}
-                    onChange={(e) => setContent(e.taget.value)}
+                    value={postcontent}
+                    onChange={(e) => setpostContent(e.target.value)}
                     required />
                     <button type="submit">Submit</button>
                         </form>

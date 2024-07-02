@@ -1,30 +1,40 @@
 import React,{useEffect,useState} from "react";
-import { collection ,doc,getDocs } from "firebase/firestore";
+import { collection ,getDocs } from "firebase/firestore";
 import {db} from "../firebase";
+import './Post.css'; 
 
 const Post =() =>{
-    const[post, setPost] =useState("");
+    const[postMessage, setPostMessage] =useState([]);
     
     useEffect(() =>{
-        const fetchpost =async () =>{
+        const fetchPosts =async () =>{
+            try{
             const querySnapshot = await getDocs(collection(db, "posts"));
-            setPost(querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-        };
-        fetchpost();
-    }, []);
+            const posts = querySnapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }));
+            setPostMessage(posts);
+        }catch (error) {
+            console.error("Error fetching documents: ", error);
+        }
+    };
 
+    fetchPosts();
+},[]);
    
     return(
         <div className="container">
-            <h1>blog posts </h1>
-            {postMessage.map((post)=>(
-                <div key={post.id}>
-                    <h2>{post.title} </h2>
-                    <p> {post.content}</p>
-                </div>
-
-            ))
-            }
+             {Array.isArray(postMessage) ? (
+                postMessage.map((post) => (
+                    <div key={post.id}>
+                        <h2>{post.title}</h2>
+                        <p>{post.postcontent}</p>
+                    </div>
+                ))
+            ) : (
+                <p>No posts available</p>
+            )}
         </div>
     );
 
