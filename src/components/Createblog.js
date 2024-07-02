@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { addDoc, collection } from "firebase/firestore"; 
 import { db } from "../firebase";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import './Createblog.css'; 
 
 
@@ -9,6 +9,8 @@ const CreateBlog =() =>{
     const[title, setTitle] =useState("");
     const[postcontent, setpostContent] =useState("");
     const navigate =useNavigate();
+    const location =useLocation() ;
+    const email =location.state?.email;
 
     const handleSubmit =  async (e) => {
         e.preventDefault();

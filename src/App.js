@@ -1,33 +1,48 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Routes } from"react-router-dom";
 import Home from './components/Home';
-import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import About from './components/About';
 import Services from './components/Services';
 import Form from './components/Form';
 import Signin from './components/Signin';
-import Signup from './components/Signup';
+//  import ForgotPassword from './components/ForgotPassword';
 import './App.css';
 import CreateBlog from './components/Createblog';
-import Post from './components/Post';
+ import { Link } from "react-router-dom";
+ import { useState } from 'react';
+
 
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false); 
   return (
     
        <Router>
+        
         <div className="App">
-        <Navbar />
+          <div className='navbar'>
+            <ul>
+           <li><Link to="/Home"> Home </Link></li>
+            <li><Link to="/Form">Contact</Link></li>
+            <li><Link to="/About">About</Link></li>
+            <li><Link to="/Services">Help</Link> </li>
+             {isAuthenticated && <li><Link to="/create">Create Blog</Link></li>}
+            <li className="buttons">
+                    <Link to="/Signin" className="button">SIGNIN</Link>
+            </li>
+            </ul> 
+            </div>
+      
         <Routes>
         <Route path="/Home" element={<Home/>}/>
         <Route path="/Form" element={<Form/>}/>
         <Route path= "/Services" element={<Services/>}/>
         <Route path= "/About" element={<About/>}/>
-        <Route path= "/Signin" element={<Signin/>}/>
-        <Route path= "/Signup" element={<Signup/>}/>
+        <Route path= "/Signin" element={<Signin setIsAuthenticated={setIsAuthenticated} />}/>
         <Route path= "/Create" element={<CreateBlog/>}/>
-        <Route path= "/" element={<Post/>}/>
+        {/* <Route path= "/Signup" element={<ForgotPassword/>}/>  */}
+        {/* <Route path= "/forgot-password" element={<ForgotPassword/>}/> */}
         </Routes>
         <Footer/>
   

@@ -3,6 +3,7 @@ import './Home.css';
 import { Link } from "react-router-dom";
 import React from 'react'
 
+
 function Home() {
   return (
     <div>
@@ -16,6 +17,13 @@ function Home() {
             {/* <button className="btn">Login</button> */}
 
         {/* </div> */}
+        <div className="intro">
+        <h1>Create a blog</h1>
+        <p>
+        Share your story with the world. Create a beautiful, personalized blog that fits your brand.
+        Grow your audience with built-in marketing tools, or transform 
+        your passion into revenue by gating access with a paywall.</p>
+        </div>
       
     </div>
   )

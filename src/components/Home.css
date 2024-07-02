@@ -3,9 +3,15 @@ body{
     margin: 0;
 
 }
+.intro{
+  color: rgb(21, 21, 21);  
+  font-style: bold;
+  font-size: medium;
+  height: max-content;
+}
 .btn{
     width: 80px;
 }
 .footer{
-    margin-top: 150px;
+
 }

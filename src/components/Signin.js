@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
 import './Signin.css';
 
 const Signin = () => {
-
+  
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+  
+    const [showForgotPassword, setshowForgotPassword] = useState(false);
     const navigate = useNavigate();
     const [error, setError] = useState(null);
 
@@ -19,8 +21,22 @@ const Signin = () => {
             navigate("/", { state: { email: userCredential.user.email } });
         } catch (error) {
             setError(error.message);
+            if (error.code ==="auth/wrong-password"){
+                setshowForgotPassword (true);
+            }
         }
-    }
+    };
+        const handleForgotPassword = async() =>{
+            try{
+                await sendPasswordResetEmail(auth,email);
+                alert("request accept.check your inbox");
+            }catch(error){
+                setError(error.message);
+            }
+
+            };
+     
+    
 
     return (
         <div className="container">
@@ -40,13 +56,15 @@ const Signin = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required />
+                     <button type="submit" >Sign In</button>
 
-                <button type="submit">Sign In</button>
-
-               
+                {showForgotPassword &&(
+                <button type="button" onClick={handleForgotPassword}>
+                    Forgot Password?</button>
+               ) }
                 {error && <p>{error}</p>}
-                <p>Don't have an account?</p>
-                <button onClick={() => navigate("/signup")} className="link-btn">Sign Up</button>
+                
+           
             </form>
         </div>
     );

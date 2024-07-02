@@ -6,9 +6,9 @@ function Form(){
         <h2>Contact us!!!!</h2>
         <form>
         <label>First Name</label>
-        <input type="text"name="Name" placeholder="Put your Name" required/>
+        <input type="text"name="Name" placeholder="First Name" required/>
         <label>Last Name:</label>
-        <input type="text"name="name" placeholder="FirstName" required/>
+        <input type="text"name="name" placeholder="Last Name" required/>
         <label>Email:</label>
       
         <input type="text"name="name" placeholder="Emailid" required/>

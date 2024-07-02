@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,51 @@
   to {
     transform: rotate(360deg);
   }
+} */
+.navbar{
+  background-color: rgb(237, 219, 219);
+  height: 90px;
+  margin-bottom: 100px;
+}
+.navbar ul{
+  list-style-type: none;
+  display:flex;
+}
+.navbar ul li{
+  color: white;
+  display:inline;
+  display:block;
+  padding:10px;
+  /* border:1px solid white; */
+  margin: 20px;
+  list-style: none;
+}
+.navbar ul li:hover{
+  background-color: azure;
+  color:black;
+  
+}
+/* .btn{
+  align-items: center;
+  color: rgb(116, 82, 116);
+  /* display:inline; */
+  /* margin-top: 100px;
+  margin-bottom: 500px;
+   */
+
+*/
+.buttons .button {
+  display: flexbox;
+  padding: 8px 16px;
+
+  /* color: white; */
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+/* .buttons .button:hover {
+  background-color: #c1d2e3;
+} */
+.footer{
+  margin-top: 500px;
 }
