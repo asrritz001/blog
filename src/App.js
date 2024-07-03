@@ -6,12 +6,13 @@ import About from './components/About';
 import Services from './components/Services';
 import Form from './components/Form';
 import Signin from './components/Signin';
-//  import ForgotPassword from './components/ForgotPassword';
+import ForgotPassword from './components/ForgotPassword';
 import './App.css';
 import CreateBlog from './components/Createblog';
+import Post from './components/Post';
  import { Link } from "react-router-dom";
  import { useState } from 'react';
-
+ import { Navigate } from 'react-router-dom';
 
 
 function App() {
@@ -28,9 +29,9 @@ function App() {
             <li><Link to="/About">About</Link></li>
             <li><Link to="/Services">Help</Link> </li>
              {isAuthenticated && <li><Link to="/create">Create Blog</Link></li>}
-            <li className="buttons">
+             {!isAuthenticated &&<li className="buttons">
                     <Link to="/Signin" className="button">SIGNIN</Link>
-            </li>
+            </li>}
             </ul> 
             </div>
       
@@ -40,9 +41,9 @@ function App() {
         <Route path= "/Services" element={<Services/>}/>
         <Route path= "/About" element={<About/>}/>
         <Route path= "/Signin" element={<Signin setIsAuthenticated={setIsAuthenticated} />}/>
-        <Route path= "/Create" element={<CreateBlog/>}/>
-        {/* <Route path= "/Signup" element={<ForgotPassword/>}/>  */}
-        {/* <Route path= "/forgot-password" element={<ForgotPassword/>}/> */}
+        <Route path= "/Createblog" element={ isAuthenticated ?<CreateBlog/> :<navigate to ="/Signin"/>}/>
+        <Route path= "/Forgotpassword" element={<ForgotPassword/>}/> 
+        <Route path= "/" element={<Post/>}/>
         </Routes>
         <Footer/>
   

@@ -1,33 +1,36 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import './Signin.css';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+// import './Style.css';
+import { Link } from "react-router-dom";
 
-const Signin = ({setIsAuthenticated}) => {
-  
+const Signup = () => {
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const [error, setError] = useState(null);
 
-    const handleSignin = async (e) => {
+    const handleSignup = async (e) => {
         e.preventDefault();
+
         try {
-            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             console.log(userCredential);
-            setIsAuthenticated(true);
-            navigate("/CreateBlog", { state: { email: userCredential.user.email } });
+            navigate("/", { state: { email: userCredential.user.email } });
+
         } catch (error) {
             setError(error.message);
         }
+
     }
 
     return (
         <div className="container">
 
-            <h1>Sign In</h1>
-            <form onSubmit={handleSignin}>
+            <h1>Sign Up</h1>
+            <form onSubmit={handleSignup}>
                 <input
                     type="email"
                     placeholder="Enter your email"
@@ -42,16 +45,16 @@ const Signin = ({setIsAuthenticated}) => {
                     onChange={(e) => setPassword(e.target.value)}
                     required />
 
-                <button type="submit" >Sign In</button>
-               
-                {error && <p>{error}</p>}
-                <p>Forgot password?</p>
-                <button onClick={() => navigate("/forgot-password")} className="link-btn">Reset Password</button>
-           
+                <button type="submit">Sign Up</button>
+
+
+                {error && <p className="error">{error}</p>}
+                <p>Already have an account?</p>
+                <button onClick={() => navigate("/Signin")} className="link-btn">Signin</button>
+
             </form>
         </div>
-    );
+    )
+}
 
-};
-
-export default Signin;
+export default Signup;

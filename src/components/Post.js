@@ -24,10 +24,10 @@ const Post =() =>{
 },[]);
    
     return(
-        <div className="container">
+        <div className=" posts-container">
              {Array.isArray(postMessage) ? (
                 postMessage.map((post) => (
-                    <div key={post.id}>
+                    <div key={post.id} className="post-box">
                         <h2>{post.title}</h2>
                         <p>{post.postcontent}</p>
                     </div>

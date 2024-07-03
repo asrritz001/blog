@@ -1,26 +1,25 @@
-/* General container styling */
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-box {
+    width: 80%;
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 16px 0;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
-/* Post styling */
-.post {
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.post-box h2 {
+    margin: 0 0 8px;
 }
 
-.post h2 {
-    margin-top: 0;
+.post-box p {
+    margin: 0;
 }
 
-.post p {
-    white-space: pre-wrap;
-}
+

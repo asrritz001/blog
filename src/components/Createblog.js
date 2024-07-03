@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { addDoc, collection } from "firebase/firestore"; 
+import { addDoc,deleteDoc,getDoc,doc, collection } from "firebase/firestore"; 
 import { db } from "../firebase";
 import { useLocation, useNavigate } from "react-router-dom";
 import './Createblog.css'; 
