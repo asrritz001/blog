@@ -13,10 +13,19 @@ import Post from './components/Post';
  import { Link } from "react-router-dom";
  import { useState } from 'react';
  import { Navigate } from 'react-router-dom';
-
+ import { auth } from './firebase';
+import { serverTimestamp } from 'firebase/firestore';
+// import {useAuthState} from "react-router-dom";
 
 function App() {
+
   const [isAuthenticated, setIsAuthenticated] = useState(false); 
+  // const [user, loading, error] = useAuthState(auth); 
+  const handleSignout=() =>{
+    auth.signOut() ;
+      setIsAuthenticated(false);
+     
+  };
   return (
     
        <Router>
@@ -28,10 +37,12 @@ function App() {
             <li><Link to="/Form">Contact</Link></li>
             <li><Link to="/About">About</Link></li>
             <li><Link to="/Services">Help</Link> </li>
-             {isAuthenticated && <li><Link to="/create">Create Blog</Link></li>}
+             {isAuthenticated && <li><Link to="/createblog">Create Blog</Link></li>}
              {!isAuthenticated &&<li className="buttons">
-                    <Link to="/Signin" className="button">SIGNIN</Link>
+                    <Link to="/Signin" className="button">SIGN IN</Link>
             </li>}
+            {isAuthenticated &&<li className='buttons'>
+              <Link to="/" className='button' onClick={handleSignout}> SIGN OUT</Link></li>}
             </ul> 
             </div>
       
@@ -43,7 +54,8 @@ function App() {
         <Route path= "/Signin" element={<Signin setIsAuthenticated={setIsAuthenticated} />}/>
         <Route path= "/Createblog" element={ isAuthenticated ?<CreateBlog/> :<navigate to ="/Signin"/>}/>
         <Route path= "/Forgotpassword" element={<ForgotPassword/>}/> 
-        <Route path= "/" element={<Post/>}/>
+        <Route path= "/Posts" element={<Post/>}/>
+        <Route path='/' element={<Navigate to ="/Home"/>}> </Route>
         </Routes>
         <Footer/>
   
