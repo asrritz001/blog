@@ -14,13 +14,11 @@ import Post from './components/Post';
  import { useState } from 'react';
  import { Navigate } from 'react-router-dom';
  import { auth } from './firebase';
-import { serverTimestamp } from 'firebase/firestore';
-// import {useAuthState} from "react-router-dom";
 
 function App() {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false); 
-  // const [user, loading, error] = useAuthState(auth); 
+  
   const handleSignout=() =>{
     auth.signOut() ;
       setIsAuthenticated(false);
