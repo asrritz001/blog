@@ -20,7 +20,7 @@ const CreateBlog =() =>{
                 postcontent,
                 createdAt : new Date(),
             });
-            navigate("/");
+            navigate("/Post");
         }catch(error ){
             console.error("Error adding document",error);
         }

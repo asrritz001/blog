@@ -52,7 +52,7 @@ function App() {
         <Route path= "/Signin" element={<Signin setIsAuthenticated={setIsAuthenticated} />}/>
         <Route path= "/Createblog" element={ isAuthenticated ?<CreateBlog/> :<navigate to ="/Signin"/>}/>
         <Route path= "/Forgotpassword" element={<ForgotPassword/>}/> 
-        <Route path= "/Posts" element={<Post/>}/>
+        <Route path= "/Post" element={<Post/>}/>
         <Route path='/' element={<Navigate to ="/Home"/>}> </Route>
         </Routes>
         <Footer/>
