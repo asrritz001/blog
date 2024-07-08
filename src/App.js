@@ -10,11 +10,13 @@ import ForgotPassword from './components/ForgotPassword';
 import './App.css';
 import CreateBlog from './components/Createblog';
 import Post from './components/Post';
- import { Link } from "react-router-dom";
- import { useState } from 'react';
- import { Navigate } from 'react-router-dom';
- import { auth } from './firebase';
+import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import { auth } from './firebase';
+import UserProfile from './components/UserProfile';
 
+import Signup from './components/Signup';
 function App() {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false); 
@@ -53,6 +55,8 @@ function App() {
         <Route path= "/Createblog" element={ isAuthenticated ?<CreateBlog/> :<navigate to ="/Signin"/>}/>
         <Route path= "/Forgotpassword" element={<ForgotPassword/>}/> 
         <Route path= "/Post" element={<Post/>}/>
+        <Route path= "/Signup" element={<Signup/>}/>
+        <Route path="/UserProfile" element={<UserProfile />} />
         <Route path='/' element={<Navigate to ="/Home"/>}> </Route>
         </Routes>
         <Footer/>

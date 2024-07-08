@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-// import './Style.css';
+import './Style.css';
 import { Link } from "react-router-dom";
 
 const Signup = () => {
@@ -18,7 +18,7 @@ const Signup = () => {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             console.log(userCredential);
-            navigate("/", { state: { email: userCredential.user.email } });
+            navigate("/Createblog", { state: { email: userCredential.user.email } });
 
         } catch (error) {
             setError(error.message);
