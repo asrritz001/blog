@@ -39,8 +39,9 @@ function App() {
         
              {isAuthenticated && <li><Link to="/createblog">Create Blog</Link></li>}
              {!isAuthenticated &&<li className="buttons">
-                    <Link to="/Signin" className="button">SIGN IN</Link>
+                    <Link to="/Signin" className="button">Sign In</Link>
             </li>}
+            <li><Link to="/Signup">Sign up</Link></li>
             {isAuthenticated &&<li className='buttons'>
               <Link to="/" className='button' onClick={handleSignout}> SIGN OUT</Link></li>}
             </ul> 
