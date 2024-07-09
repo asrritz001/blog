@@ -71,6 +71,7 @@ const handleDelete =async(postId) =>{
    
     return(
         <div className=" posts-container">
+            
              {Array.isArray(postMessage) ? (
                 postMessage.length> 0 ?(
                 postMessage.map((post) => (

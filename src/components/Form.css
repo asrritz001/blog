@@ -4,8 +4,8 @@
     margin:0 auto;
     padding:20px;
    margin-bottom: 10px;
-    border:1px solid rgba(146, 139, 139, 0);
-    background-color: rgb(53, 46, 48);
+    border:1px solid rgba(245, 242, 242, 0);
+    background-color: rgb(244, 242, 242);
     margin-top: 0cqb;
   
 }
@@ -37,6 +37,6 @@
 }
 .form button:hover{
     background-color: rgba(190, 184, 192, 0.922);
-    /* color: rgb(70, 64, 64); */
+   
     border-color: grey;
 }

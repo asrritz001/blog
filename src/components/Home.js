@@ -19,12 +19,16 @@ function Home() {
         {/* </div> */}
         <div className="intro">
         <h1>Create a blog</h1>
-        <p>
-        Share your story with the world. Create a beautiful, personalized blog that fits your brand.
-        Grow your audience with built-in marketing tools, or transform 
-        your passion into revenue by gating access with a paywall.</p>
+        <div class="page-title">
+        <p class="page-description">
+        Welcome to Inspire
+
+       Explore, Learn, and Share your Ideas
+       Begin your journey into the world of Inspire with us. Whether you're here to read,
+       write, or connect with others,you're in the right place. Join our community and start 
+       creating today!.</p>
         </div>
-      
+        </div>
     </div>
   )
 }
